@@ -15,7 +15,7 @@ def get_count():
 
 subprocess.run(["docker", "compose", "-p", "checking_docker", "--env-file", env_example_file, "down", "-v"], check=True)
 
-subprocess.run(["docker", "compose", "-p", "checking_docker", "--env-file", env_example_file, "up", "-d", "--build", "--wait"], check=True)
+subprocess.run(["docker", "compose", "-p", "checking_docker", "--env-file", env_example_file, "up", "-d", "--build", "--wait", "--wait-timeout", "60"], check=True)
 
 
 assert get_count() == 0, "Count is not equal to 0 at the start"
@@ -28,7 +28,7 @@ for i in range(N):
 assert get_count() == N, "Error while incrementing"
 
 
-subprocess.run(["docker", "compose", "-p", "checking_docker", "--env-file", env_example_file, "up", "-d", "--force-recreate", "--no-deps", "app", "--wait"], check=True)
+subprocess.run(["docker", "compose", "-p", "checking_docker", "--env-file", env_example_file, "up", "-d", "--force-recreate", "--no-deps", "app", "--wait", "--wait-timeout", "60"], check=True)
 
 assert get_count() == N, "Count is not equal to one before shutting the docker down"
 
@@ -53,9 +53,13 @@ subprocess.run([
     "tar", "czpf", "/backup/redis-data.tar.gz", "-C", "/data", "."
 ], check=True)
 
-subprocess.run(["docker", "compose", "-p", "checking_docker", "start", "--wait"], check=True)
+subprocess.run(["docker", "compose", "-p", "checking_docker", "start", "--wait", "--wait-timeout", "60"], check=True)
 
 assert get_count() == N, "Count is not equal to one before shutting redis down"
+
+increment()
+
+assert get_count() == N + 1, "Error while incrementing"
 
 subprocess.run(["docker", "compose", "-p", "checking_docker", "--env-file", env_example_file, "down", "-v"], check=True)
 
