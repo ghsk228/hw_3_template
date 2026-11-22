@@ -2,8 +2,9 @@ import random
 import subprocess
 import json
 import os
+from pathlib import Path
 
-env_example_file = os.path.abspath(__file__) + "/../../.env.example"
+env_example_file = Path(__file__).resolve().parent.parent / ".env.example"
 
 def increment():
     subprocess.call(["curl", "--max-time", "5", "-X", "POST", "http://localhost:8000/increment"])
@@ -27,9 +28,7 @@ for i in range(N):
 assert get_count() == N, "Error while incrementing"
 
 
-subprocess.run(["docker", "compose", "-p", "checking_docker", "--env-file", env_example_file, "down"], check=True)
-
-subprocess.run(["docker", "compose", "-p", "checking_docker", "--env-file", env_example_file, "up", "-d", "--wait"], check=True)
+subprocess.run(["docker", "compose", "-p", "checking_docker", "--env-file", env_example_file, "up", "-d", "--force-recreate", "--no-deps", "app", "--wait"], check=True)
 
 assert get_count() == N, "Count is not equal to one before shutting the docker down"
 
@@ -51,10 +50,12 @@ subprocess.run([
     "-v", "checking_docker_redis-data:/data:ro",
     "-v", f"{os.getcwd()}:/backup",
     "alpine",
-    "tar", "czpf", f"/backup.rdb", "-C", "/data", "."
+    "tar", "czpf", "/backup/redis-data.tar.gz", "-C", "/data", "."
 ], check=True)
 
-subprocess.run(["docker", "compose", "-p", "checking_docker", "start", "redis", "--wait"], check=True)
+subprocess.run(["docker", "compose", "-p", "checking_docker", "start", "--wait"], check=True)
+
+assert get_count() == N, "Count is not equal to one before shutting redis down"
 
 subprocess.run(["docker", "compose", "-p", "checking_docker", "--env-file", env_example_file, "down", "-v"], check=True)
 

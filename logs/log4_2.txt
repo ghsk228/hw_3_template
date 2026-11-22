@@ -1,4 +1,4 @@
-time="2026-11-22T15:02:42+03:00" level=warning msg="Warning: No resource found to remove for project \"checking_docker\"."
+time="2026-11-22T15:51:27+03:00" level=warning msg="Warning: No resource found to remove for project \"checking_docker\"."
  Image python:3.13-slim Building 
 #1 [internal] load local bake definitions
 #1 reading from stdin 571B done
@@ -9,7 +9,7 @@ time="2026-11-22T15:02:42+03:00" level=warning msg="Warning: No resource found t
 #2 DONE 0.0s
 
 #3 [internal] load metadata for docker.io/library/python:3.13-slim-bookworm
-#3 DONE 1.4s
+#3 DONE 0.8s
 
 #4 [internal] load .dockerignore
 #4 transferring context: 86B done
@@ -23,13 +23,13 @@ time="2026-11-22T15:02:42+03:00" level=warning msg="Warning: No resource found t
 #6 transferring context: 63B done
 #6 DONE 0.0s
 
-#7 [4/6] COPY requirements.txt .
+#7 [2/6] WORKDIR /app
 #7 CACHED
 
-#8 [2/6] WORKDIR /app
+#8 [5/6] RUN pip install --no-cache-dir -r requirements.txt
 #8 CACHED
 
-#9 [5/6] RUN pip install --no-cache-dir -r requirements.txt
+#9 [4/6] COPY requirements.txt .
 #9 CACHED
 
 #10 [3/6] COPY app.py .
@@ -42,8 +42,8 @@ time="2026-11-22T15:02:42+03:00" level=warning msg="Warning: No resource found t
 #12 exporting layers done
 #12 exporting manifest sha256:e34caa28bfcac97e211465e2d0e0f3a11ae68f08064f4790647a9f4d3b035e6c done
 #12 exporting config sha256:c59b24e55a364961852870a08c4b6233edb934e977e70ed58d96120fb8ab60ed done
-#12 exporting attestation manifest sha256:59e89552778185f6c5e46f6be80bc7025f12e7e4c8fa49267826ed14680a8cb0 done
-#12 exporting manifest list sha256:a3f0f35cc68aa938d3d1ef8bbb0e5f99b1d93b44fd8d1d3ca43284fdbb229b63 done
+#12 exporting attestation manifest sha256:521e02ed33045f12e1e1fe5a05db8eef649db1bd8137bcca11442fc00c7dce51 done
+#12 exporting manifest list sha256:4d78d2c5686f989e8dc70dc23f181ce3e78c7f4ebc0d56280d3f4a1edc2abe26 done
 #12 naming to docker.io/library/python:3.13-slim done
 #12 unpacking to docker.io/library/python:3.13-slim done
 #12 DONE 0.0s
@@ -51,11 +51,11 @@ time="2026-11-22T15:02:42+03:00" level=warning msg="Warning: No resource found t
 #13 resolving provenance for metadata file
 #13 DONE 0.0s
  Image python:3.13-slim Built 
- Volume checking_docker_redis-data Creating 
+ Network checking_docker_default Creating 
  Volume checking_docker_counter-data Creating 
- Network checking_docker_default Creating 
- Volume checking_docker_redis-data Created 
+ Volume checking_docker_redis-data Creating 
  Volume checking_docker_counter-data Created 
+ Volume checking_docker_redis-data Created 
  Network checking_docker_default Created 
  Container checking_docker-redis-1 Creating 
  Container checking_docker-app-1 Creating 
@@ -65,353 +65,108 @@ time="2026-11-22T15:02:42+03:00" level=warning msg="Warning: No resource found t
  Container checking_docker-app-1 Starting 
  Container checking_docker-redis-1 Started 
  Container checking_docker-app-1 Started 
- Container checking_docker-app-1 Waiting 
  Container checking_docker-redis-1 Waiting 
+ Container checking_docker-app-1 Waiting 
+ Container checking_docker-app-1 Healthy 
  Container checking_docker-redis-1 Healthy 
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  39612      0                              0100     90 100     90   0      0  36246      0                              0100     90 100     90   0      0  33494      0                              0
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  61983      0                              0100     90 100     90   0      0  54315      0                              0100     90 100     90   0      0  48413      0                              0
+{"greeting": "Hello, Docker!", "count": 1, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  52785      0                              0100     90 100     90   0      0  46899      0                              0100     90 100     90   0      0  42432      0                              0
+{"greeting": "Hello, Docker!", "count": 2, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  68807      0                              0100     90 100     90   0      0  62370      0                              0100     90 100     90   0      0  57142      0                              0
+{"greeting": "Hello, Docker!", "count": 3, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  77054      0                              0100     90 100     90   0      0  69071      0                              0100     90 100     90   0      0  62893      0                              0
+{"greeting": "Hello, Docker!", "count": 4, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  63694      0                              0100     90 100     90   0      0  58064      0                              0100     90 100     90   0      0  53603      0                              0
+{"greeting": "Hello, Docker!", "count": 5, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  66469      0                              0100     90 100     90   0      0  60443      0                              0100     90 100     90   0      0  55589      0                              0
+{"greeting": "Hello, Docker!", "count": 6, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  66469      0                              0100     90 100     90   0      0  59960      0                              0100     90 100     90   0      0  55113      0                              0
+{"greeting": "Hello, Docker!", "count": 7, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  73529      0                              0100     90 100     90   0      0  66273      0                              0100     90 100     90   0      0  60565      0                              0
+{"greeting": "Hello, Docker!", "count": 8, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  74812      0                              0100     90 100     90   0      0  63965      0                              0100     90 100     90   0      0  56109      0                              0
+{"greeting": "Hello, Docker!", "count": 9, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  74958      0                              0100     91 100     91   0      0  67158      0                              0100     91 100     91   0      0  61197      0                              0
+{"greeting": "Hello, Docker!", "count": 10, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  69096      0                              0100     91 100     91   0      0  62715      0                              0100     91 100     91   0      0  57667      0                              0
+{"greeting": "Hello, Docker!", "count": 11, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  57124      0                              0100     91 100     91   0      0  52510      0                              0100     91 100     91   0      0  48793      0                              0
+{"greeting": "Hello, Docker!", "count": 12, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  63326      0                              0100     91 100     91   0      0  57961      0                              0100     91 100     91   0      0  53529      0                              0
+{"greeting": "Hello, Docker!", "count": 13, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  67059      0                              0100     91 100     91   0      0  58634      0                              0100     91 100     91   0      0  54070      0                              0
+{"greeting": "Hello, Docker!", "count": 14, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  57667      0                              0100     91 100     91   0      0  53061      0                              0100     91 100     91   0      0  49349      0                              0
+{"greeting": "Hello, Docker!", "count": 15, "hostname": "8ad9eb1cd3d0", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  85365      0                              0100     91 100     91   0      0  65046      0                              0100     91 100     91   0      0  52968      0                              0
+ Container checking_docker-app-1 Recreate 
+ Container checking_docker-app-1 Recreated 
+ Container checking_docker-app-1 Starting 
+ Container checking_docker-app-1 Started 
+ Container checking_docker-app-1 Waiting 
  Container checking_docker-app-1 Healthy 
   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
                                  Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  34233      0                              0100     90 100     90   0      0  28445      0                              0100     90 100     90   0      0  24556      0                              0
+  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  43374      0                              0100     91 100     91   0      0  40788      0                              0100     91 100     91   0      0  38575      0                              0
+ Container checking_docker-redis-1 Stopping 
+ Container checking_docker-redis-1 Stopped 
   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
                                  Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  50876      0                              0100     90 100     90   0      0  45500      0                              0100     90 100     90   0      0  41246      0                              0
-{"greeting": "Hello, Docker!", "count": 1, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+  0      0   0      0   0      0      0      0                              0100     19 100     19   0      0  13277      0                              0100     19 100     19   0      0  11592      0                              0100     19 100     19   0      0  10320      0                              0
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
                                  Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  53475      0                              0100     90 100     90   0      0  47071      0                              0100     90 100     90   0      0  42194      0                              0
-{"greeting": "Hello, Docker!", "count": 2, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+  0      0   0      0   0      0      0      0                              0100     32 100     32   0      0   3343      0                              0100     32 100     32   0      0   3168      0                              0100     32 100     32   0      0   2997      0                              0
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
                                  Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  92118      0                              0100     90 100     90   0      0  81081      0                              0100     90 100     90   0      0  72756      0                              0
-{"greeting": "Hello, Docker!", "count": 3, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  69390      0                              0100     90 100     90   0      0  62937      0                              0100     90 100     90   0      0  57729      0                              0
-{"greeting": "Hello, Docker!", "count": 4, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  57397      0                              0100     90 100     90   0      0  52785      0                              0100     90 100     90   0      0  49046      0                              0
-{"greeting": "Hello, Docker!", "count": 5, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  57507      0                              0100     90 100     90   0      0  52785      0                              0100     90 100     90   0      0  48754      0                              0
-{"greeting": "Hello, Docker!", "count": 6, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  55831      0                              0100     90 100     90   0      0  51428      0                              0100     90 100     90   0      0  47897      0                              0
-{"greeting": "Hello, Docker!", "count": 7, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  64423      0                              0100     90 100     90   0      0  58290      0                              0100     90 100     90   0      0  53763      0                              0
-{"greeting": "Hello, Docker!", "count": 8, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     90 100     90   0      0  54711      0                              0100     90 100     90   0      0  50533      0                              0100     90 100     90   0      0  47071      0                              0
-{"greeting": "Hello, Docker!", "count": 9, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  59167      0                              0100     91 100     91   0      0  54425      0                              0100     91 100     91   0      0  50499      0                              0
-{"greeting": "Hello, Docker!", "count": 10, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  58295      0                              0100     91 100     91   0      0  51152      0                              0100     91 100     91   0      0  45890      0                              0
-{"greeting": "Hello, Docker!", "count": 11, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  66471      0                              0100     91 100     91   0      0  60225      0                              0100     91 100     91   0      0  55521      0                              0
-{"greeting": "Hello, Docker!", "count": 12, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  68164      0                              0100     91 100     91   0      0  61694      0                              0100     91 100     91   0      0  56733      0                              0
-{"greeting": "Hello, Docker!", "count": 13, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  59907      0                              0100     91 100     91   0      0  55018      0                              0100     91 100     91   0      0  50951      0                              0
-{"greeting": "Hello, Docker!", "count": 14, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  56803      0                              0100     91 100     91   0      0  52359      0                              0100     91 100     91   0      0  48767      0                              0
-{"greeting": "Hello, Docker!", "count": 15, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  72164      0                              0100     91 100     91   0      0  55828      0                              0100     91 100     91   0      0  46547      0                              0
-{"greeting": "Hello, Docker!", "count": 16, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  59129      0                              0100     91 100     91   0      0  53909      0                              0100     91 100     91   0      0  50082      0                              0
-{"greeting": "Hello, Docker!", "count": 17, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  62585      0                              0100     91 100     91   0      0  56662      0                              0100     91 100     91   0      0  52389      0                              0
-{"greeting": "Hello, Docker!", "count": 18, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  62888      0                              0100     91 100     91   0      0  57377      0                              0100     91 100     91   0      0  53030      0                              0
-{"greeting": "Hello, Docker!", "count": 19, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  61362      0                              0100     91 100     91   0      0  49945      0                              0100     91 100     91   0      0  42483      0                              0
-{"greeting": "Hello, Docker!", "count": 20, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  54523      0                              0100     91 100     91   0      0  50137      0                              0100     91 100     91   0      0  46786      0                              0
-{"greeting": "Hello, Docker!", "count": 21, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  59283      0                              0100     91 100     91   0      0  54458      0                              0100     91 100     91   0      0  50499      0                              0
-{"greeting": "Hello, Docker!", "count": 22, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  55657      0                              0100     91 100     91   0      0  50781      0                              0100     91 100     91   0      0  47199      0                              0
-{"greeting": "Hello, Docker!", "count": 23, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  57631      0                              0100     91 100     91   0      0  52876      0                              0100     91 100     91   0      0  49189      0                              0
-{"greeting": "Hello, Docker!", "count": 24, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  47272      0                              0100     91 100     91   0      0  43940      0                              0100     91 100     91   0      0  41102      0                              0
-{"greeting": "Hello, Docker!", "count": 25, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  61904      0                              0100     91 100     91   0      0  56381      0                              0100     91 100     91   0      0  52089      0                              0
-{"greeting": "Hello, Docker!", "count": 26, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  60465      0                              0100     91 100     91   0      0  55555      0                              0100     91 100     91   0      0  51499      0                              0
-{"greeting": "Hello, Docker!", "count": 27, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  50276      0                              0100     91 100     91   0      0  45545      0                              0100     91 100     91   0      0  42783      0                              0
-{"greeting": "Hello, Docker!", "count": 28, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  70433      0                              0100     91 100     91   0      0  63636      0                              0100     91 100     91   0      0  58258      0                              0
-{"greeting": "Hello, Docker!", "count": 29, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  72625      0                              0100     91 100     91   0      0  65420      0                              0100     91 100     91   0      0  59907      0                              0
-{"greeting": "Hello, Docker!", "count": 30, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  70927      0                              0100     91 100     91   0      0  63994      0                              0100     91 100     91   0      0  58634      0                              0
-{"greeting": "Hello, Docker!", "count": 31, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  65000      0                              0100     91 100     91   0      0  59206      0                              0100     91 100     91   0      0  54621      0                              0
-{"greeting": "Hello, Docker!", "count": 32, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  49030      0                              0100     91 100     91   0      0  45636      0                              0100     91 100     91   0      0  42622      0                              0
-{"greeting": "Hello, Docker!", "count": 33, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  61486      0                              0100     91 100     91   0      0  50055      0                              0100     91 100     91   0      0  42622      0                              0
-{"greeting": "Hello, Docker!", "count": 34, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  66813      0                              0100     91 100     91   0      0  60384      0                              0100     91 100     91   0      0  55691      0                              0
-{"greeting": "Hello, Docker!", "count": 35, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  84729      0                              0100     91 100     91   0      0  74468      0                              0100     91 100     91   0      0  67307      0                              0
-{"greeting": "Hello, Docker!", "count": 36, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  64676      0                              0100     91 100     91   0      0  59129      0                              0100     91 100     91   0      0  54589      0                              0
-{"greeting": "Hello, Docker!", "count": 37, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  61820      0                              0100     91 100     91   0      0  54556      0                              0100     91 100     91   0      0  49109      0                              0
-{"greeting": "Hello, Docker!", "count": 38, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  65232      0                              0100     91 100     91   0      0  57268      0                              0100     91 100     91   0      0  52906      0                              0
-{"greeting": "Hello, Docker!", "count": 39, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  59360      0                              0100     91 100     91   0      0  54589      0                              0100     91 100     91   0      0  50696      0                              0
-{"greeting": "Hello, Docker!", "count": 40, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  63636      0                              0100     91 100     91   0      0  58184      0                              0100     91 100     91   0      0  53750      0                              0
-{"greeting": "Hello, Docker!", "count": 41, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  69785      0                              0100     91 100     91   0      0  63238      0                              0100     91 100     91   0      0  57998      0                              0
-{"greeting": "Hello, Docker!", "count": 42, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  54134      0                              0100     91 100     91   0      0  50027      0                              0100     91 100     91   0      0  46714      0                              0
-{"greeting": "Hello, Docker!", "count": 43, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  81250      0                              0100     91 100     91   0      0  72683      0                              0100     91 100     91   0      0  65846      0                              0
-{"greeting": "Hello, Docker!", "count": 44, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  58445      0                              0100     91 100     91   0      0  53687      0                              0100     91 100     91   0      0  49808      0                              0
-{"greeting": "Hello, Docker!", "count": 45, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  76086      0                              0100     91 100     91   0      0  67859      0                              0100     91 100     91   0      0  61946      0                              0
-{"greeting": "Hello, Docker!", "count": 46, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  60344      0                              0100     91 100     91   0      0  55285      0                              0100     91 100     91   0      0  51296      0                              0
-{"greeting": "Hello, Docker!", "count": 47, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  72858      0                              0100     91 100     91   0      0  65561      0                              0100     91 100     91   0      0  59947      0                              0
-{"greeting": "Hello, Docker!", "count": 48, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  60828      0                              0100     91 100     91   0      0  55555      0                              0100     91 100     91   0      0  51412      0                              0
-{"greeting": "Hello, Docker!", "count": 49, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  73803      0                              0100     91 100     91   0      0  66569      0                              0100     91 100     91   0      0  60828      0                              0
-{"greeting": "Hello, Docker!", "count": 50, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  74529      0                              0100     91 100     91   0      0  63859      0                              0100     91 100     91   0      0  56416      0                              0
-{"greeting": "Hello, Docker!", "count": 51, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  64539      0                              0100     91 100     91   0      0  58596      0                              0100     91 100     91   0      0  54134      0                              0
-{"greeting": "Hello, Docker!", "count": 52, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  48872      0                              0100     91 100     91   0      0  45522      0                              0100     91 100     91   0      0  42763      0                              0
-{"greeting": "Hello, Docker!", "count": 53, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  64861      0                              0100     91 100     91   0      0  58221      0                              0100     91 100     91   0      0  53154      0                              0
-{"greeting": "Hello, Docker!", "count": 54, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  61238      0                              0100     91 100     91   0      0  56069      0                              0100     91 100     91   0      0  51970      0                              0
-{"greeting": "Hello, Docker!", "count": 55, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  81541      0                              0100     91 100     91   0      0  72567      0                              0100     91 100     91   0      0  65846      0                              0
-{"greeting": "Hello, Docker!", "count": 56, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  77315      0                              0100     91 100     91   0      0  69044      0                              0100     91 100     91   0      0  62975      0                              0
-{"greeting": "Hello, Docker!", "count": 57, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  73033      0                              0100     91 100     91   0      0  65279      0                              0100     91 100     91   0      0  59711      0                              0
-{"greeting": "Hello, Docker!", "count": 58, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  60910      0                              0100     91 100     91   0      0  55759      0                              0100     91 100     91   0      0  51645      0                              0
-{"greeting": "Hello, Docker!", "count": 59, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  71823      0                              0100     91 100     91   0      0  64768      0                              0100     91 100     91   0      0  59322      0                              0
-{"greeting": "Hello, Docker!", "count": 60, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  68939      0                              0100     91 100     91   0      0  62414      0                              0100     91 100     91   0      0  57232      0                              0
-{"greeting": "Hello, Docker!", "count": 61, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  57377      0                              0100     91 100     91   0      0  52753      0                              0100     91 100     91   0      0  49030      0                              0
-{"greeting": "Hello, Docker!", "count": 62, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  49189      0                              0100     91 100     91   0      0  45866      0                              0100     91 100     91   0      0  43046      0                              0
-{"greeting": "Hello, Docker!", "count": 63, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  62031      0                              0100     91 100     91   0      0  56662      0                              0100     91 100     91   0      0  52479      0                              0
-{"greeting": "Hello, Docker!", "count": 64, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  63725      0                              0100     91 100     91   0      0  57998      0                              0100     91 100     91   0      0  53592      0                              0
-{"greeting": "Hello, Docker!", "count": 65, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  61736      0                              0100     91 100     91   0      0  56521      0                              0100     91 100     91   0      0  52359      0                              0
-{"greeting": "Hello, Docker!", "count": 66, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  56242      0                              0100     91 100     91   0      0  51675      0                              0100     91 100     91   0      0  48173      0                              0
-{"greeting": "Hello, Docker!", "count": 67, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  56521      0                              0100     91 100     91   0      0  51822      0                              0100     91 100     91   0      0  48021      0                              0
-{"greeting": "Hello, Docker!", "count": 68, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  69678      0                              0100     91 100     91   0      0  63194      0                              0100     91 100     91   0      0  58146      0                              0
-{"greeting": "Hello, Docker!", "count": 69, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  93621      0                              0100     91 100     91   0      0  82129      0                              0100     91 100     91   0      0  74774      0                              0
-{"greeting": "Hello, Docker!", "count": 70, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  91826      0                              0100     91 100     91   0      0  82055      0                              0100     91 100     91   0      0  75020      0                              0
-{"greeting": "Hello, Docker!", "count": 71, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  89215      0                              0100     91 100     91   0      0  80602      0                              0100     91 100     91   0      0  73803      0                              0
-{"greeting": "Hello, Docker!", "count": 72, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  96705      0                              0100     91 100     91   0      0  88263      0                              0100     91 100     91   0      0  81614      0                              0
-{"greeting": "Hello, Docker!", "count": 73, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  96092      0                              0100     91 100     91   0      0  87922      0                              0100     91 100     91   0      0  81541      0                              0
-{"greeting": "Hello, Docker!", "count": 74, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0 98.74k      0                              0100     91 100     91   0      0  92012      0                              0100     91 100     91   0      0  84967      0                              0
-{"greeting": "Hello, Docker!", "count": 75, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  68731      0                              0100     91 100     91   0      0  59750      0                              0100     91 100     91   0      0  53216      0                              0
-{"greeting": "Hello, Docker!", "count": 76, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  93429      0                              0100     91 100     91   0      0  85849      0                              0100     91 100     91   0      0  79615      0                              0
-{"greeting": "Hello, Docker!", "count": 77, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0 100.1k      0                              0100     91 100     91   0      0  93429      0                              0100     91 100     91   0      0  86174      0                              0
-{"greeting": "Hello, Docker!", "count": 78, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0 101.6k      0                              0100     91 100     91   0      0  94594      0                              0100     91 100     91   0      0  87164      0                              0
-{"greeting": "Hello, Docker!", "count": 79, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  92951      0                              0100     91 100     91   0      0  84493      0                              0100     91 100     91   0      0  78380      0                              0
-{"greeting": "Hello, Docker!", "count": 80, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  94791      0                              0100     91 100     91   0      0  86832      0                              0100     91 100     91   0      0  80459      0                              0
-{"greeting": "Hello, Docker!", "count": 81, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  82502      0                              0100     91 100     91   0      0  76470      0                              0100     91 100     91   0      0  71428      0                              0
-{"greeting": "Hello, Docker!", "count": 82, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0 100.8k      0                              0100     91 100     91   0      0  94008      0                              0100     91 100     91   0      0  86666      0                              0
-{"greeting": "Hello, Docker!", "count": 83, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0 102.1k      0                              0100     91 100     91   0      0  94989      0                              0100     91 100     91   0      0  87584      0                              0
-{"greeting": "Hello, Docker!", "count": 84, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0 107.8k      0                              0100     91 100     91   0      0  87081      0                              0100     91 100     91   0      0  72916      0                              0
-{"greeting": "Hello, Docker!", "count": 85, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  89303      0                              0100     91 100     91   0      0  82278      0                              0100     91 100     91   0      0  76406      0                              0
-{"greeting": "Hello, Docker!", "count": 86, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  96296      0                              0100     91 100     91   0      0  86914      0                              0100     91 100     91   0      0  79754      0                              0
-{"greeting": "Hello, Docker!", "count": 87, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  88007      0                              0100     91 100     91   0      0  80960      0                              0100     91 100     91   0      0  75518      0                              0
-{"greeting": "Hello, Docker!", "count": 88, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0 103.4k      0                              0100     91 100     91   0      0  96092      0                              0100     91 100     91   0      0  88263      0                              0
-{"greeting": "Hello, Docker!", "count": 89, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  95890      0                              0100     91 100     91   0      0  87081      0                              0100     91 100     91   0      0  80176      0                              0
-{"greeting": "Hello, Docker!", "count": 90, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0 107.7k      0                              0100     91 100     91   0      0  99453      0                              0100     91 100     91   0      0  91091      0                              0
-{"greeting": "Hello, Docker!", "count": 91, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  99020      0                              0100     91 100     91   0      0  90547      0                              0100     91 100     91   0      0  83716      0                              0
-{"greeting": "Hello, Docker!", "count": 92, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  80246      0                              0100     91 100     91   0      0  74104      0                              0100     91 100     91   0      0  69359      0                              0
-{"greeting": "Hello, Docker!", "count": 93, "hostname": "3255cce943cb", "storage": "redis"}  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0 104.9k      0                              0100     91 100     91   0      0  97639      0                              0100     91 100     91   0      0  89655      0                              0
+  0      0   0      0   0      0      0      0                              0100     32 100     32   0      0   6252      0                              0100     32 100     32   0      0   5664      0                              0100     32 100     32   0      0   5195      0                              0
  Container checking_docker-redis-1 Stopping 
  Container checking_docker-app-1 Stopping 
  Container checking_docker-redis-1 Stopped 
- Container checking_docker-redis-1 Removing 
- Container checking_docker-redis-1 Removed 
  Container checking_docker-app-1 Stopped 
- Container checking_docker-app-1 Removing 
- Container checking_docker-app-1 Removed 
- Network checking_docker_default Removing 
- Network checking_docker_default Removed 
- Network checking_docker_default Creating 
- Network checking_docker_default Created 
- Container checking_docker-app-1 Creating 
- Container checking_docker-redis-1 Creating 
- Container checking_docker-app-1 Created 
- Container checking_docker-redis-1 Created 
  Container checking_docker-app-1 Starting 
  Container checking_docker-redis-1 Starting 
  Container checking_docker-app-1 Started 
  Container checking_docker-redis-1 Started 
- Container checking_docker-redis-1 Waiting 
  Container checking_docker-app-1 Waiting 
+ Container checking_docker-redis-1 Waiting 
  Container checking_docker-app-1 Healthy 
  Container checking_docker-redis-1 Healthy 
   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
                                  Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  33703      0                              0100     91 100     91   0      0  31100      0                              0100     91 100     91   0      0  29064      0                              0
- Container checking_docker-redis-1 Stopping 
- Container checking_docker-redis-1 Stopped 
-  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100     19 100     19   0      0  12599      0                              0100     19 100     19   0      0  11564      0                              0100     19 100     19   0      0  10734      0                              0
-  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0           00:01              0  0      0   0      0   0      0      0      0           00:02              0  0      0   0      0   0      0      0      0           00:03              0100     32 100     32   0      0      7      0   00:04   00:04              7100     32 100     32   0      0      7      0   00:04   00:04              7100     32 100     32   0      0      7      0   00:04   00:04              7
-  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0           00:01              0  0      0   0      0   0      0      0      0           00:02              0  0      0   0      0   0      0      0      0           00:03              0100     32 100     32   0      0      7      0   00:04   00:04              7100     32 100     32   0      0      7      0   00:04   00:04              7100     32 100     32   0      0      7      0   00:04   00:04              7
+  0      0   0      0   0      0      0      0                              0100     91 100     91   0      0  35339      0                              0100     91 100     91   0      0  32698      0                              0100     91 100     91   0      0  30506      0                              0
  Container checking_docker-app-1 Stopping 
  Container checking_docker-redis-1 Stopping 
- Container checking_docker-redis-1 Stopped 
- Container checking_docker-app-1 Stopped 
- Container checking_docker-redis-1 Starting 
- Container checking_docker-redis-1 Started 
- Container checking_docker-redis-1 Waiting 
- Container checking_docker-redis-1 Healthy 
- Container checking_docker-app-1 Stopping 
- Container checking_docker-redis-1 Stopping 
- Container checking_docker-app-1 Stopped 
- Container checking_docker-app-1 Removing 
- Container checking_docker-app-1 Removed 
  Container checking_docker-redis-1 Stopped 
  Container checking_docker-redis-1 Removing 
  Container checking_docker-redis-1 Removed 
- Volume checking_docker_counter-data Removing 
+ Container checking_docker-app-1 Stopped 
+ Container checking_docker-app-1 Removing 
+ Container checking_docker-app-1 Removed 
  Volume checking_docker_redis-data Removing 
+ Volume checking_docker_counter-data Removing 
  Network checking_docker_default Removing 
- Volume checking_docker_counter-data Removed 
  Volume checking_docker_redis-data Removed 
+ Volume checking_docker_counter-data Removed 
  Network checking_docker_default Removed 
 All tests passed!

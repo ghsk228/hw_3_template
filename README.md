@@ -27,6 +27,12 @@ docker compose --env-file .env.example down
 docker compose --env-file .env.example up -d
 ```
 
+## Перезапуск сервера
+
+```bash
+docker compose --env-file .env.example up -d --force-recreate --no-deps app
+```
+
 ## Настройки
 
 | Переменная | По умолчанию | Значение |
