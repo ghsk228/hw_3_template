@@ -1,0 +1,38 @@
+docker compose --env-file .env.example up -d --build
+
+curl -X POST http://localhost:8000/increment
+>>> {"greeting": "Hello, Docker!", "count": 1, "hostname": "d7e8d4069823", "storage": "redis"}
+
+curl -X POST http://localhost:8000/increment
+>>> {"greeting": "Hello, Docker!", "count": 2, "hostname": "d7e8d4069823", "storage": "redis"}
+
+curl -X POST http://localhost:8000/increment
+>>> {"greeting": "Hello, Docker!", "count": 3, "hostname": "d7e8d4069823", "storage": "redis"}
+
+docker compose --env-file .env.example down
+
+docker compose --env-file .env.example up -d
+
+curl http://localhost:8000/
+>>> {"greeting": "Hello, Docker!", "count": 3, "hostname": "0d6c0fa489ef", "storage": "redis"}
+
+docker compose stop redis
+
+curl -i http://localhost:8000/healthz
+>>> HTTP/1.0 200 OK
+
+curl -i http://localhost:8000/readyz
+>>> HTTP/1.0 503 Service Unavailable
+
+curl -i -X POST http://localhost:8000/increment
+>>> HTTP/1.0 503 Service Unavailable
+
+docker compose start redis
+
+curl http://localhost:8000/
+>>> {"greeting": "Hello, Docker!", "count": 3, "hostname": "0d6c0fa489ef", "storage": "redis"}
+
+curl -X POST http://localhost:8000/increment
+>>> {"greeting": "Hello, Docker!", "count": 4, "hostname": "0d6c0fa489ef", "storage": "redis"}
+
+docker compose --env-file .env.example down -v

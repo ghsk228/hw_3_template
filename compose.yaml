@@ -1,0 +1,40 @@
+services:
+  app:
+    image: python:3.13-slim
+    build: ./app
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    environment:
+      GREETING: "${GREETING:-Hello, Docker!}"
+      PORT: "8000"
+      STORAGE: "${STORAGE:-sqlite}"
+      REDIS_URL: "${REDIS_URL:-redis://redis:6379/0}"
+    volumes:
+      - counter-data:/data
+    healthcheck:
+      test: [ "CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=2)" ]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    read_only: true
+    mem_limit: 256m
+    cpus: 1.0
+
+
+
+  redis:
+    image: redis:7.4-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+
+volumes:
+  counter-data:
+  redis-data:

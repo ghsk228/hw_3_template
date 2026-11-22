@@ -1,0 +1,10 @@
+Запуск контейнера:
+{"greeting": "Hello world!", "count": 3, "hostname": "cd11c6e031ac", "storage": "sqlite"}
+
+3 раза POST /increment:
+{"greeting": "Hello world!", "count": 6, "hostname": "cd11c6e031ac", "storage": "sqlite"}
+
+Остановка контейнера
+
+Запуск контейнера:
+{"greeting": "Hello world!", "count": 6, "hostname": "cd11c6e031ac", "storage": "sqlite"}
